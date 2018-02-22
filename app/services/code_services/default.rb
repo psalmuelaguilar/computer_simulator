@@ -5,7 +5,7 @@ module CodeServices
     end
 
     def print(string)
-      string
+      string.to_s
     end
   end
 end

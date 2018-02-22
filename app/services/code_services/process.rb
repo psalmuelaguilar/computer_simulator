@@ -12,14 +12,15 @@ module CodeServices
         eval_code = eval(code)
         output = eval_code if code == @code
       end
+
       output
     end
 
     private
 
     def evil_code?
-      # TODO: Prevent Destructive Calls
-      # TODO: Prevent Overriding of calls??
+      # TODO Should implement this to check for
+      # bad codes that can down the app
       CodeService::Checker.new(@code).process
     end
 

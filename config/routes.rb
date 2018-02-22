@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :codes do
     collection do
       get :reset
+      post :process_code
     end
   end
 end
