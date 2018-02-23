@@ -1,24 +1,48 @@
-# README
+# TenTen Programming Assignment Computer Simulator
+## Getting Started
+This Coding challenge is a simple IRB on web. as the requirements should support executing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+  def print_tenten
+    print(multiply(101, 10))
+  end
 
-Things you may want to cover:
+  print(1009)
+  print_tenten()
 
-* Ruby version
+  # 1099
+  # 1010
+```
 
-* System dependencies
+### Prerequisites
+* Ruby version: ruby 2.4.2p198
+* Database: Postgres 9.1+ (should support array)
+* RVM or RBENV or similar
 
-* Configuration
+### Installation
 
-* Database creation
+* Install Gem (on terminal)
+```
+gem install bundler
+bundle install
+```
 
-* Database initialization
+* Setting up the database and seed file (on terminal)
+```
+rake db:create db:migrate db:seed
+```
 
-* How to run the test suite
+* Starting the Project (on terminal) go to localhost:3000/codes
+```
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Running the specs (on terminal)
+```
+rspec .
+```
 
-* Deployment instructions
+### Information on how to use
 
-* ...
+* After Starting the Project go to `localhost:3000/codes`
+* Type the code at the bottom text area, then press submit

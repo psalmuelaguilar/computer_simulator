@@ -5,14 +5,18 @@ module CodeServices
     end
 
     def run
+      output = nil
       store_to_cache
       codes = fetch_cache
-      output = nil
-      codes.each do |code|
-        eval_code = eval(code)
-        output = eval_code if code == @code
+      begin
+        codes.each do |code|
+          eval_code = eval(code)
+          output = eval_code if code == @code
+        end
+      rescue
+        pop_cache
+        output = 'SYNTAX ERROR!'
       end
-
       output
     end
 
@@ -31,6 +35,11 @@ module CodeServices
 
     def fetch_cache
       Rails.cache.fetch('code') || []
+    end
+
+    def pop_cache
+      fetch_cache.pop
+      Rails.cache.fetch('code') { fetch_cache }
     end
   end
 end
